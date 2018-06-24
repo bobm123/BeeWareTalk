@@ -30,7 +30,7 @@ include mobile platforms along with the traditional
 
 desktops.
 
-- One Codebase, multiple apps
+- One codebase, multiple apps
 
 - Uses Python native tools
 
@@ -452,7 +452,7 @@ Includes a module called Pack that can apply CSS3-like styles
 
 ## Layout Example
 
-Add some nested content to the Demo applications window
+Put some nested content in the Demo application's main window
 
 ```python
         # Create another box and add it to main_box
@@ -488,9 +488,9 @@ Toga includes several examples to get you started.
 
 - Most focus on a specific widget
 
-- Also has few are simple applications
+- Also has few simple applications
 
-- Simply clone the Toga's repository or view them on line: https://github.com/pybee/toga/examples
+- Clone the Toga repository or view them on-line: https://github.com/pybee/toga/examples
 
 ---
 
@@ -498,7 +498,7 @@ Toga includes several examples to get you started.
 
 - Clone the git repository
 
-    - Note, this installs a source copy of Toga
+    - Note, this installs another source copy of Toga.
 
     - It is a seperate copy of the library from the installed 
       with pip earlier. 
@@ -549,14 +549,15 @@ Main window with several buttons that bring up various modal dialogs
 
 ## The Bad News
 
-This project is still in early days. It's not even version 0.3 yet.
+The BeeWare project is still in its infancy. It's not even version 0.3 yet.
 
-- Some examples will not run on all platforms.
+- Some examples will not run on every platforms.
 
 - Still much work to do writing abstractions for the target APIs 
     - Canvas widget still under development for Windows
 
-- Windows integration with event loop limited
+- Windows integration with event loop is limited 
+    - yield from a widget handler doesn't work
 
  
 ```python

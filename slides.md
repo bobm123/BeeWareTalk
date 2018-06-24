@@ -610,6 +610,10 @@ Pycon 2017 - RKM - Writing a Trasnpiler
 
 - https://www.youtube.com/watch?v=9c4DEYIXYCM
 
+WebAssembly and the Death of JavaScript
+
+- https://www.youtube.com/watch?v=pBYqen3B2gc
+
 ---
 name: centerlayout
 layout: true

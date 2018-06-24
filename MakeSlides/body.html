@@ -1,0 +1,47 @@
+<h2>This is a test</h2>
+<p>Code blocks must be indented by 4 whitespaces.
+Python-Markdown has a auto-guess function which works
+pretty well:</p>
+<div class="codehilite"><pre><span></span>print(&quot;Hello, World&quot;)
+# some comment
+for letter in &quot;this is a test&quot;:
+    print(letter)
+</pre></div>
+
+
+<p>In cases where Python-Markdown has problems figuring out which
+programming language we use, we can also add the language-tag
+explicitly. One way to do this would be:</p>
+<div class="codehilite"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hello, World&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<p>or we can highlight certain lines to
+draw the reader's attention:</p>
+<div class="codehilite"><pre><span></span><span class="hll"><span class="k">print</span><span class="p">(</span><span class="s2">&quot;highlight me!&quot;</span><span class="p">)</span>
+</span><span class="c1"># but not me!</span>
+<span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="s2">&quot;this is a test&quot;</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
+<span class="hll"><span class="c1"># I want to be highlighted, too!</span>
+</span></pre></div>
+
+
+<hr />
+<h1>For Loops in Python</h1>
+<p>The 'for' in python is really more like a 'for-each'
+Values from the list of words are delivered to w
+The body of the loop executes repeatedly until the list is
+exhausted</p>
+<div class="codehilite"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Ham&quot;</span><span class="p">,</span> <span class="s2">&quot;Eggs&quot;</span><span class="p">,</span> <span class="s2">&quot;Bacon&quot;</span><span class="p">,</span> <span class="s2">&quot;Spam&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+    <span class="k">print</span> <span class="p">(</span><span class="n">w</span><span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<h1>Looping Over Numeric Values</h1>
+<p>Use range() when working with a sequence of numbers</p>
+<div class="codehilite"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="k">print</span> <span class="p">(</span><span class="n">i</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>

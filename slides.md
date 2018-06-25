@@ -348,7 +348,7 @@ https://rubicon-objc.readthedocs.io
 <img src="resources/voc.png" height="144" class="mid-align">
 ]
 .right-column[
-Android development usually happens in Java, so you can count on the the Java Virtual Machine being present. VOC is a transpiler that produces Java bytecodes from Python.
+Android development usually happens in Java, so you can count on the Java Virtual Machine being present. VOC is a transpiler that produces Java bytecodes from Python.
 
 - In theory, this could be done by translating Python bytecodes to Java bytecodes
 

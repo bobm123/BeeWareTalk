@@ -231,6 +231,11 @@ python setup.py android -s
 
 This produces an android subdirectory that contains a Gradle project. It will also launch the app on the first Android device or simulator that can be found running on (or attached to) your computer.
 
+To run, must also have a copy of Android studio installed. See this link for details:
+
+https://briefcase.readthedocs.io/en/latest/background/getting-started.html#android
+
+
 ---
 
 ## Installing on Mobile Platforms - iOS
@@ -249,7 +254,29 @@ It will also produce an ios subdirectory that contains an XCode project called H
 
 Documentation and examples can be found here:
 
-https://briefcase.readthedocs.io/
+https://briefcase.readthedocs.io/en/latest/tutorial/tutorial-1.html
+
+---
+
+## Running in the Browser
+
+The setup.py that Briefcase created handles installation of Django (a Python web framework) and its dependencies. It needs some additional Javascript code to run.
+
+- Install an LTS version of Node (6.9.x)
+- Install NPM 4.x or higher
+- Available at https://nodejs.org/en/download/
+
+Run setup to create the django version of the app
+
+```
+python setup.py django -s
+```
+
+This collects all the Javascript dependencies, compiles the app and starts a Django webserver on localhost:8042, then launches a browser.
+
+I had trouble doing this on my system, but a screenshot of a BeeWare app running in Safari can be seen here:
+
+https://briefcase.readthedocs.io/en/latest/tutorial/tutorial-1.html
 
 ---
 

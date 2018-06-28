@@ -250,14 +250,6 @@ It will also produce an ios subdirectory that contains an XCode project called H
 
 ---
 
-## More Information on Briefcase
-
-Documentation and examples can be found here:
-
-https://briefcase.readthedocs.io/en/latest/tutorial/tutorial-1.html
-
----
-
 ## Running in the Browser
 
 The setup.py that Briefcase created handles installation of Django (a Python web framework) and its dependencies. It needs some additional Javascript code to run.
@@ -277,6 +269,18 @@ This collects all the Javascript dependencies, compiles the app and starts a Dja
 I had trouble doing this on my system, but a screenshot of a BeeWare app running in Safari can be seen here:
 
 https://briefcase.readthedocs.io/en/latest/tutorial/tutorial-1.html
+
+---
+
+## More Information on Briefcase
+
+Instructions on setting up development environments for each platform can be found here:
+
+https://briefcase.readthedocs.io/en/latest/background/getting-started.html
+
+Some additional examples here:
+
+https://briefcase.readthedocs.io/en/latest/tutorial/index.html
 
 ---
 
@@ -630,11 +634,11 @@ The BeeWare project is still in its infancy. It's not even version 0.3 yet.
 
 ### Videos
 
-Pycon 2018 - RKM - The "Beeliza" code example
+PyCon 2018 - RKM - The "Beeliza" code example
 
 - https://www.youtube.com/watch?v=qaPzlIJ57dk
 
-Pycon 2017 - RKM - Writing a Transpiler
+PyCon 2017 - RKM - Writing a Transpiler
 
 - https://www.youtube.com/watch?v=9c4DEYIXYCM
 

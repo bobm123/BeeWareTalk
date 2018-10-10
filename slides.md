@@ -10,7 +10,7 @@ class: center, middle, inverse
 ---
 layout: false
 ## What is BeeWare?
-
+------------
 .left-column[
 ## The Pitch :
 
@@ -40,13 +40,14 @@ desktops.
 
 - Opens source, BSD liscensed
 
-- Compatible with modern Python
+"Native widgets - not themes"
+
 ]
 
 ---
 
 ## The BeeWare Project
-
+------------
 Home Page https://pybee.org/
 
 Founded by Dr. Russel Keith-Magee, one of the Django core developers
@@ -58,7 +59,7 @@ Under active develpoment on GitHub with a core team of 8 people and nearly 100 c
 ---
 
 ## Getting Started with BeeWare
-
+------------
 - As a Python native tool, the developer experience begins with pip
 
 - Best practices suggest that you should use virtual environments
@@ -78,7 +79,7 @@ Under active develpoment on GitHub with a core team of 8 people and nearly 100 c
 ---
 
 ## Create a New Project
-
+------------
 - BeeWare includes a script for starting a new project
 
     - Based on Cookiecutter, a general purpose tool for setting up projects
@@ -107,7 +108,7 @@ Under active develpoment on GitHub with a core team of 8 people and nearly 100 c
 
 ---
 ## What Briefcase Gives You
-
+------------
 - A project director with a stub application
 
 ```dos
@@ -134,14 +135,15 @@ demo/
 ---
 
 ## The Starter App (WinForms version)
-
+------------
 A fully functional Windows application that doesn't do anything useful.
  
 <img src="resources/demo_app.png" width="600" class="mid-align">
 
 ---
-## The Starter App Code
 
+## The Starter App Code
+------------
 Code goes in `demo/demo/app.py`
 
 ```python
@@ -172,7 +174,7 @@ def main():
 ---
 
 ## Deploy the Application with Briefcase
-
+------------
 .left-column[
 <img src="resources/briefcase.png" height="144" class="mid-align">
 ]
@@ -186,26 +188,81 @@ This is where Briefcase component of the BeeWare project comes in. The setup.py 
 
 ---
 
-## Create a Windows Installer
+## Create a Windows Installer using WiX
+------------
+Briefcases uses the WiX toolset to create an installer for your application. This must be installed seperately and can be found here:
 
-To create a windows installer, Run the build command from the project directory. This generates subdirectory that containing a .msi installer produced by the WiX toolkit.
+http://wixtoolset.org/
+https://github.com/wixtoolset/wix3/releases/tag/wix3111rtm
+
+<img src="resources/WiX-toolset.png" height="400" class="mid-align"> 
+
+
+---
+
+## Create an Installer for your Application
+------------
+
+To create a windows installer, run setup.py from the project directory. This generates subdirectory that containing a .msi installer.
 
 ```dos
 (beeware-env) D:\demo>python setup.py windows -s
 ```
 
+This will also run the application, to compile the installer without running the app, leave off "-s"
+
+```dos
+(beeware-env) D:\demo>python setup.py windows
+```
+
 ---
 
-## A Windows Installer
+## Create an Installer for your Application
+------------
+Note: this may warn about Toga because BeeWare ships (as of 10/07/2018) with version 0.3.0.dev11, but the Briefcase templates use Dev9. To fix this, edit the 'options' sections of setup.py to point to the correct Toga version.
 
-You can give this to a friend. They can install and run it and they never need to know it was written in python!
+```python
+        ...
+
+        # Desktop/laptop deployments
+        'macos': {
+            'app_requires': [
+                'toga-cocoa==0.3.0.dev11',
+            ]
+        },
+        'linux': {
+            'app_requires': [
+                'toga-gtk==0.3.0.dev11',
+            ]
+        },
+        'windows': {
+            'app_requires': [
+                'toga-winforms==0.3.0.dev11',
+            ]
+        },
+
+        ...
+```
+ 
+---
+
+## Using the Application Installer
+------------
+You can give this installer (.msi) file to a friend. They can install it, run it, and they never need to know it was written in Python!
 
 <img src="resources/demo_installer.png" class="mid-align">
 
 ---
+## Running the Installed Application
+------------
+After the application has been installed, it can be run from the familiar "Start" window
+
+<img src="resources/WiX-InstalledApplication.png" height="400" class="mid-align">
+
+---
 
 ## Installing on Desktop Platforms - Linux
-
+------------
 ```
 python setup.py linux -s
 ```
@@ -215,7 +272,7 @@ This produces a Linux subdirectory containing a shell script that will start the
 ---
 
 ## Installing on Desktop Platforms - macOS
-
+------------
 ```
 python setup.py macos -s
 ```
@@ -224,7 +281,7 @@ This produces a macOS subdirectory containing an application bundle.
 ---
 
 ## Installing on Mobile Platforms - Android
-
+------------
 ```
 python setup.py android -s
 ```
@@ -235,11 +292,26 @@ To run, must also have a copy of Android studio installed. See this link for det
 
 https://briefcase.readthedocs.io/en/latest/background/getting-started.html#android
 
+Unfortunately, current versions of Android Studio are not compatible with this project.
+
+---
+<img src="resources/AndroidStatusEmail.png" height="400" class="mid-align">
+---
+
+## Some Android Work in Progress
+------------
+A cookiecutter template and walkthrough using VOC without Toga (Pybee components)
+
+https://github.com/MarkusH/Python-Android-template/tree/3.6-fixup-gradle
+
+A demo app of Tic Tac Toe game also using Beeware components
+
+https://github.com/eliasdorneles/tictactoe-voc
 
 ---
 
 ## Installing on Mobile Platforms - iOS
-
+------------
 ```
 python setup.py ios -s
 ```
@@ -251,14 +323,14 @@ It will also produce an ios subdirectory that contains an XCode project called H
 ---
 
 ## Running in the Browser
-
-The setup.py that Briefcase created handles installation of Django (a Python web framework) and its dependencies. It needs some additional Javascript code to run.
+------------
+The setup.py that Briefcase created handles installation of Django (a Python web framework) and its dependencies. As a webb app, it needs some additional Javascript code to run.
 
 - Install an LTS version of Node (6.9.x)
 - Install NPM 4.x or higher
 - Available at https://nodejs.org/en/download/
 
-Run setup to create the django version of the app
+You will also need to "pip install django" and another package "django-environ". Then you can run setup to create the django version of the app
 
 ```
 python setup.py django -s
@@ -266,13 +338,16 @@ python setup.py django -s
 
 This collects all the Javascript dependencies, compiles the app and starts a Django webserver on localhost:8042, then launches a browser.
 
-I had trouble doing this on my system, but a screenshot of a BeeWare app running in Safari can be seen here:
+Generates a Django project that can be run again from manage.py
 
-https://briefcase.readthedocs.io/en/latest/tutorial/tutorial-1.html
+```
+python manage.py
+```
 
 ---
 
 ## More Information on Briefcase
+------------
 
 Instructions on setting up development environments for each platform can be found here:
 
@@ -285,6 +360,7 @@ https://briefcase.readthedocs.io/en/latest/tutorial/index.html
 ---
 
 ## A More Useful App
+------------
 
 Russell wrote an application called "Travel Tips". It shows costs in local and home currency, then calculates the amount for a tip. 
 
@@ -295,18 +371,21 @@ https://github.com/freakboy3742/traveltips
 ---
 
 ## Travel Tips on Windows
+------------
 
 <img src="resources/traveltips-screenshot.png" class="mid-align">
 
 ---
 
 ## The same application on Linux
+------------
 
 <img src="resources/traveltips-linux.png" width="640" class="mid-align">
 
 ---
 
 ## Traveltips on Mac
+------------
 
 
 <img src="resources/ScreenShot20180624-mac.png" height="500" class="mid-align">
@@ -314,28 +393,32 @@ https://github.com/freakboy3742/traveltips
 ---
 
 ## Travel Tips in the Apple App Store
+------------
 
 <img src="resources/IMG_0047.PNG" height="500" class="mid-align">
 
 ---
 
 ## Travel Tips on my iPhone screen
+------------
 
 <img src="resources/IMG_0051.PNG" height="500" class="mid-align">
 
 ---
 
 ## Travel Tips running on my iPhone
+------------
 
 <img src="resources/IMG_0050.PNG" height="500" class="mid-align">
 
 ---
 
 ## How did it do that?
+------------
 
 Windows and Linux provide good Python bindings to their respective APIs.
 
-But some systems do not. BeeWare provides 3 bridging libraries for them. 
+But some systems do not. BeeWare provides 3 approaches for dealing with them. 
 
 #### Rubicon 
 - for Apple (iOS, macOS) that use Objective C
@@ -351,6 +434,7 @@ But some systems do not. BeeWare provides 3 bridging libraries for them.
 ---
 
 ## Rubicon for Apple Ecosystems
+------------
 
 .left-column[
 <img src="resources/rubicon.png" height="144" class="mid-align">
@@ -374,6 +458,7 @@ https://rubicon-objc.readthedocs.io
 ---
 
 ## VOC for Python to Java
+------------
 
 .left-column[
 <img src="resources/voc.png" height="144" class="mid-align">
@@ -395,6 +480,7 @@ https://www.youtube.com/watch?v=9c4DEYIXYCM
 ---
 
 ## Python in the Browser
+------------
 
 .left-column[
 <img src="resources/batavia.png" height="144" class="mid-align">
@@ -416,6 +502,7 @@ https://github.com/pybee/batavia
 ---
 
 ## Creating your own Application
+------------
 
 .left-column[
 <img src="resources/toga.png" height="144" class="mid-align">
@@ -432,7 +519,7 @@ Let's make that Demo application a little more interesting with some Widgets
 ---
 
 ## Creating your own Application
-
+------------
 
 That starter app doesn't even say "Hello World!", let's change that!
 
@@ -457,6 +544,7 @@ That starter app doesn't even say "Hello World!", let's change that!
 ---
 
 ## Creating your own Application
+------------
 
 Now some static text appears in the main box
 
@@ -465,6 +553,7 @@ Now some static text appears in the main box
 ---
 
 ## Boxes inside boxes
+------------
 
 Toga uses something similar to the DOM model for window layout
 
@@ -481,6 +570,7 @@ Includes a module called Pack that can apply CSS3-like styles
 ---
 
 ## Layout Example
+------------
 
 Put some nested content in the Demo application's main window
 
@@ -507,12 +597,14 @@ Put some nested content in the Demo application's main window
 ---
 
 ## Layout Example
+------------
 
 <img src="resources/box-model.png" class="mid-align">
 
 ---
 
 ## Code Examples
+------------
 
 Toga includes several examples to get you started.
 
@@ -520,11 +612,38 @@ Toga includes several examples to get you started.
 
 - Also has few simple applications
 
-- Clone the Toga repository or view them on-line: https://github.com/pybee/toga/examples
+- Clone the Toga repository or view them on-line: https://github.com/pybee/toga/tree/master/examples
+
+---
+
+## Code Examples
+------------
+- beeliza - from Pycon 2018 walkthrough 
+- button - Several Button styles
+- canvas - Drawing on the canvas
+- detailedlist - List view with related information
+- dialogs - Modal dialog boxes
+- imageview - Display an image given a URL
+- multilinetextinput
+- progressbar
+- scrollcontainer
+- selection - Dropdown style list selection
+- slider - Set numeric values with up/down arrows
+- switch - Radio button
+- table
+- table_source
+- tree
+- tree_source
+- tutorial0 - Hello World!
+- tutorial1 - Farenheit to Celsius
+- tutorial2 - Combines scrolling windows and buttons
+- tutorial3 - Webview example
+- tutorial4 - Canvas and drawing primatives
 
 ---
 
 ## Running the Examples
+------------
 
 - Clone the git repository
 
@@ -544,6 +663,7 @@ Toga includes several examples to get you started.
 ---
 
 ## Running the Examples - Buttons
+------------
 
 The Buttons Demo should appear
 
@@ -552,6 +672,7 @@ The Buttons Demo should appear
 ---
 
 ## Running the Examples - Switches
+------------
 
 Toggle Switch Widgets
 
@@ -566,6 +687,7 @@ Toggle Switch Widgets
 ---
 
 ## Running the Examples - Dialogs
+------------
 
 Main window with several buttons that bring up various modal dialogs
 
@@ -578,6 +700,7 @@ Main window with several buttons that bring up various modal dialogs
 
 
 ## The Bad News
+------------
 
 The BeeWare project is still in its infancy. It's not even version 0.3 yet.
 
@@ -599,7 +722,17 @@ The BeeWare project is still in its infancy. It's not even version 0.3 yet.
 
 ---
 
+## Expect Some Bugs
+------------
+
+<img src="resources/PyconSprints.png" class="mid-align">
+
+Hand and Eye Protection Recommended!
+
+---
+
 ## You Can Help
+------------
 
 - They are activly seeking corporate sponsorship.
 
@@ -613,6 +746,7 @@ The BeeWare project is still in its infancy. It's not even version 0.3 yet.
 ---
 
 ## For More Info
+------------
 
 ### Project links
 
@@ -631,6 +765,7 @@ The BeeWare project is still in its infancy. It's not even version 0.3 yet.
 ---
 
 ## For More Info
+------------
 
 ### Videos
 
